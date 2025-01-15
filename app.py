@@ -14,6 +14,12 @@ client = MongoClient(MONGO_URI)
 db = client.books_db
 collection = db.books_data
 
+@app.route('/')
+def home():
+    return jsonify({"message": "Backend server is running successfully"}), 200
+
+
+
 @app.route('/save-page-num', methods=['POST'])
 def save_page_num():
     data = request.get_json()
